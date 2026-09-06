@@ -1,0 +1,30 @@
+<template>
+  <aside
+    class="flex h-full w-full flex-col border-r border-border bg-sidebar text-sidebar-foreground md:w-56 lg:w-64"
+  >
+    <div class="border-b border-border px-4 py-5">
+      <BrandLogo size="sm" />
+      <p class="mt-1 text-xs uppercase tracking-[0.14em] text-muted-foreground">CMS</p>
+    </div>
+
+    <nav class="flex-1 space-y-1 p-3">
+      <NuxtLink
+        v-for="item in navItems"
+        :key="item.to"
+        :to="item.to"
+        class="flex items-center gap-2 rounded-sm px-3 py-2 text-sm transition-colors hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+        active-class="bg-sidebar-accent text-sidebar-accent-foreground"
+      >
+        <component :is="item.icon" class="size-4 shrink-0 opacity-70" />
+        <span>{{ item.label }}</span>
+      </NuxtLink>
+    </nav>
+
+  </aside>
+</template>
+
+<script setup lang="ts">
+import { Package } from 'lucide-vue-next'
+
+const navItems = [{ to: '/products', label: 'Товары', icon: Package }]
+</script>

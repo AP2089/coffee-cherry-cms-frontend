@@ -1,0 +1,8 @@
+.nuxt
+.output
+node_modules
+dist
+coverage
+*.log
+package-lock.json
+public
