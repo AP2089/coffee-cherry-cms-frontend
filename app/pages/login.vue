@@ -7,15 +7,8 @@
 
         <div class="mt-6 space-y-4">
           <div class="space-y-2">
-            <Label class="text-xs uppercase tracking-[0.12em] text-muted-foreground">
-              Логин
-            </Label>
-            <Input
-              v-model="username"
-              v-bind="usernameAttrs"
-              type="text"
-              autocomplete="username"
-            />
+            <Label class="text-xs uppercase tracking-[0.12em] text-muted-foreground"> Логин </Label>
+            <Input v-model="username" v-bind="usernameAttrs" type="text" autocomplete="username" />
             <p v-if="errors.username" class="text-xs text-destructive">{{ errors.username }}</p>
           </div>
 
