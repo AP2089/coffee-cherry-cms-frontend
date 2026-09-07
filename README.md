@@ -1,5 +1,11 @@
 # Coffee Cherry CMS
 
+## Демо
+
+- URL: https://cms.coffee-cherry.proskurin.site
+- Логин: `guest`
+- Пароль: `guest`
+
 ## Переменные окружения
 
 - `NUXT_API_URL` — URL API для SSR.
