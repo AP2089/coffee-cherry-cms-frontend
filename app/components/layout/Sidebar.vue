@@ -19,7 +19,6 @@
         <span>{{ item.label }}</span>
       </NuxtLink>
     </nav>
-
   </aside>
 </template>
 
