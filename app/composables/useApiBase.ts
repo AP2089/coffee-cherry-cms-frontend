@@ -17,7 +17,7 @@ export function useApiBase(): string {
   const config = useRuntimeConfig()
 
   if (import.meta.client) {
-    return resolveLocalBackendUrl(String(config.public.apiUrl), '3001')
+    return resolveLocalBackendUrl(String(config.public.apiUrl), '3011')
   }
 
   return String(config.apiUrl).replace(/\/$/, '')
