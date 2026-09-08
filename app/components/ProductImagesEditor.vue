@@ -2,17 +2,17 @@
   <div>
     <Label class="mb-4 block">Изображение</Label>
 
-    <div class="flex items-start gap-4">
-      <div class="relative h-[150px] w-[200px] shrink-0">
+    <div class="flex flex-col items-stretch gap-4 sm:flex-row sm:items-start">
+      <div class="relative mx-auto h-[150px] w-full max-w-[200px] shrink-0 sm:mx-0 sm:w-[200px]">
         <div
           v-if="showPreview"
-          class="h-[150px] w-[200px] overflow-hidden rounded-sm border border-border bg-muted/20"
+          class="h-[150px] w-full overflow-hidden rounded-sm border border-border bg-muted/20 sm:w-[200px]"
         >
           <img
             :key="previewSrc"
             :src="previewSrc"
             :alt="slug"
-            class="h-[150px] w-[200px] object-cover object-center"
+            class="h-[150px] w-full object-cover object-center sm:w-[200px]"
             @error="imageError = true"
             @load="imageError = false"
           />
@@ -20,7 +20,7 @@
 
         <div
           v-else
-          class="flex h-[150px] w-[200px] items-center justify-center rounded-sm border border-dashed border-border bg-muted/10 px-4 text-center text-sm text-muted-foreground"
+          class="flex h-[150px] w-full items-center justify-center rounded-sm border border-dashed border-border bg-muted/10 px-4 text-center text-sm text-muted-foreground sm:w-[200px]"
         >
           Изображение не выбрано
         </div>
@@ -34,7 +34,7 @@
         </div>
       </div>
 
-      <div class="flex min-w-0 flex-1 flex-col items-end justify-start gap-3">
+      <div class="flex min-w-0 flex-1 flex-col items-stretch justify-start gap-3 sm:items-end">
         <input
           ref="inputRef"
           type="file"
@@ -44,10 +44,11 @@
           @change="onSelected"
         />
 
-        <div class="flex flex-wrap justify-end gap-2">
+        <div class="flex flex-wrap justify-stretch gap-2 sm:justify-end">
           <Button
             type="button"
             variant="magnetic-filled"
+            class="flex-1 sm:flex-none"
             :disabled="busy || !slug"
             @click="onUploadClick"
           >
@@ -57,6 +58,7 @@
             v-if="hasImage"
             type="button"
             variant="outline"
+            class="flex-1 sm:flex-none"
             :disabled="busy"
             @click="onRemoveClick"
           >
@@ -64,10 +66,12 @@
           </Button>
         </div>
 
-        <p v-if="!slug" class="text-right text-xs text-muted-foreground">
+        <p v-if="!slug" class="text-center text-xs text-muted-foreground sm:text-right">
           Сначала укажите slug товара
         </p>
-        <p v-else class="text-right text-xs text-muted-foreground">JPEG, PNG или WebP, до 100 МБ</p>
+        <p v-else class="text-center text-xs text-muted-foreground sm:text-right">
+          JPEG, PNG или WebP, до 100 МБ
+        </p>
       </div>
     </div>
   </div>

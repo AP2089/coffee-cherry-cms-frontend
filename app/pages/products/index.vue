@@ -1,10 +1,10 @@
 <template>
   <NuxtLayout name="app">
-    <LayoutAppHeader title="Товары" subtitle="Управление каталогом" />
-
     <div ref="listEl" class="flex-1 overflow-y-auto p-4 md:p-6">
-      <div class="mb-4 flex justify-end">
-        <Button variant="magnetic-filled" @click="onAddProduct"> Добавить товар </Button>
+      <div class="mb-4 flex justify-stretch sm:justify-end">
+        <Button variant="magnetic-filled" class="w-full sm:w-auto" @click="onAddProduct">
+          Добавить товар
+        </Button>
       </div>
 
       <p
@@ -34,7 +34,9 @@
           :key="item._id"
           class="rounded-sm border border-border bg-card transition-colors hover:border-bronze/40"
         >
-          <div class="flex items-center justify-between gap-4 p-4 md:p-5">
+          <div
+            class="flex flex-col gap-3 p-4 sm:flex-row sm:items-center sm:justify-between md:p-5"
+          >
             <NuxtLink :to="`/products/${item.slug}`" class="min-w-0 flex-1">
               <p class="font-display text-lg capitalize">{{ item.name }}</p>
               <p class="mt-1 text-sm text-muted-foreground">
@@ -42,8 +44,8 @@
               </p>
             </NuxtLink>
 
-            <div class="flex items-center gap-3">
-              <div class="text-right">
+            <div class="flex items-center justify-between gap-3 sm:justify-end">
+              <div class="text-left sm:text-right">
                 <p class="text-sm">{{ formatPrice(item.price) }}</p>
                 <p class="mt-1 text-xs text-muted-foreground">остаток: {{ item.stock }}</p>
               </div>

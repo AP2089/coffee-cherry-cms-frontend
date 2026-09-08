@@ -2,11 +2,6 @@
   <aside
     class="flex h-full w-full flex-col border-r border-border bg-sidebar text-sidebar-foreground md:w-56 lg:w-64"
   >
-    <div class="border-b border-border px-4 py-5">
-      <BrandLogo size="sm" />
-      <p class="mt-1 text-xs uppercase tracking-[0.14em] text-muted-foreground">CMS</p>
-    </div>
-
     <nav class="flex-1 space-y-1 p-3">
       <NuxtLink
         v-for="item in navItems"
