@@ -1,7 +1,5 @@
 <template>
   <NuxtLayout name="app">
-    <LayoutAppHeader :title="products.current?.name || 'Товар'" subtitle="Редактирование товара" />
-
     <div class="flex-1 overflow-y-auto p-4 md:p-6">
       <div v-if="products.loading" class="space-y-4">
         <Skeleton class="h-10 w-48" />
@@ -13,7 +11,9 @@
       </Alert>
 
       <template v-else-if="products.current">
-        <div class="mb-6 flex flex-wrap items-center justify-between gap-3">
+        <div
+          class="mb-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between"
+        >
           <div class="flex flex-wrap items-center gap-3">
             <Button variant="outline" size="sm" @click="navigateTo('/products')">← К списку</Button>
 
@@ -40,7 +40,7 @@
               v-if="!canEdit"
               size="sm"
               variant="destructive"
-              class="h-9 min-h-9 box-border py-0"
+              class="h-9 min-h-9 box-border flex-1 py-0 sm:flex-none"
               @click="assertCanEdit()"
             >
               Удалить
@@ -50,7 +50,7 @@
                 <Button
                   size="sm"
                   variant="destructive"
-                  class="h-9 min-h-9 box-border py-0"
+                  class="h-9 min-h-9 box-border flex-1 py-0 sm:flex-none"
                   :disabled="products.deleting === slug"
                 >
                   Удалить
@@ -73,7 +73,7 @@
             <Button
               variant="magnetic-filled"
               size="sm"
-              class="h-9 min-h-9 box-border py-0"
+              class="h-9 min-h-9 box-border flex-1 py-0 sm:flex-none"
               :disabled="products.saving || products.uploadingImage || products.imageSaving"
               @click="saveProduct"
             >
@@ -201,6 +201,7 @@ definePageMeta({
 const route = useRoute()
 const products = useProductsStore()
 const { canEdit, assertCanEdit } = useCanEdit()
+
 const slug = computed(() => String(route.params.slug))
 const activeLocale = ref<'ru' | 'en'>('ru')
 const image = ref('')

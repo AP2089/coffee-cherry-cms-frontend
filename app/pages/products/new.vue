@@ -1,7 +1,5 @@
 <template>
   <NuxtLayout name="app">
-    <LayoutAppHeader title="Новый товар" subtitle="Создание позиции в каталоге" />
-
     <div class="flex-1 overflow-y-auto p-4 md:p-6">
       <Button variant="outline" size="sm" class="mb-6" @click="navigateTo('/products')">
         ← К списку
